@@ -1,0 +1,43 @@
+#include <Servo.h>
+Servo servoLeft;
+Servo servoRight;
+
+void setup() {
+#include <Servo.h>
+Servo servoLeft;
+Servo servoRight;
+
+void setup() {
+  // put your setup code here, to run once:
+  tone(4, 3000, 1000);
+  delay(1000);
+  Serial.begin(9600);
+  servoLeft.attach(13);
+  servoRight.attach(12);
+  int time = 5000;  //for assignment: 1200
+  //rotateRight(time/8);
+  rotateRight(time/6); //30 degrees
+  delay(1000);
+  rotateRight(time/3);
+  delay(1000);
+  rotateRight(time/6+time/3);
+  detachAll();
+}
+
+void detachAll(){
+  servoRight.detach();
+  servoLeft.detach();
+}
+
+int rotateRight(int time){
+  servoLeft.writeMicroseconds(1520);
+  servoRight.writeMicroseconds(1520);
+  delay(time);
+  servoLeft.writeMicroseconds(1500);
+  servoRight.writeMicroseconds(1500);
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+ 
+}
